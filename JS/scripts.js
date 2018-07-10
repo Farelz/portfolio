@@ -82,7 +82,7 @@ function showContainer(n) {
   carouselSwitch[carouselCounter - 1].classList.add('active-carousel-switch');
 
   carouselCounter++;
-  setTimeout(showContainer, 8000);
+  setTimeout(showContainer, 20000);
 }
 
 carouselSwitch[0].addEventListener('click', () => {
