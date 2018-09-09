@@ -14,28 +14,12 @@ navButton.addEventListener('click', () => {
   }
 });
 
-navLinks[0].addEventListener('click', () => {
-  if (x.matches) {
-    navBar.style.display = 'none';
-  }
-});
-
-navLinks[1].addEventListener('click', () => {
-  if (x.matches) {
-    navBar.style.display = 'none';
-  }
-});
-
-navLinks[2].addEventListener('click', () => {
-  if (x.matches) {
-    navBar.style.display = 'none';
-  }
-});
-
-navLinks[3].addEventListener('click', () => {
-  if (x.matches) {
-    navBar.style.display = 'none';
-  }
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (x.matches) {
+      navBar.style.display = 'none';
+    }
+  });
 });
 
 // media query event handler
@@ -58,7 +42,6 @@ function WidthChange(mq) {
 const testimonialCarouselContainer = document.querySelectorAll('.client-testimonial-item');
 const carouselSwitch = document.querySelectorAll('.client-testimonial-switch');
 
-
 // Event Listeners for The Testimonials Carousel
 let carouselCounter = 1;
 showContainer(carouselCounter);
@@ -74,28 +57,24 @@ function showContainer(n) {
     testimonialCarouselContainer[i].classList.remove('fast-fade-in-left');
     carouselSwitch[i].classList.remove('active-carousel-switch');
   }
+
   if (carouselCounter > testimonialCarouselContainer.length) {
     carouselCounter = 1;
   }
+
   testimonialCarouselContainer[carouselCounter - 1].style.display = 'block';
   testimonialCarouselContainer[carouselCounter - 1].classList.add('fast-fade-in-left');
   carouselSwitch[carouselCounter - 1].classList.add('active-carousel-switch');
 
   carouselCounter++;
   setTimeout(showContainer, 20000);
+
 }
 
-carouselSwitch[0].addEventListener('click', () => {
-  currentContainer(1);
+carouselSwitch.forEach((button, i) => {
+  button.addEventListener('click', () => {
+    currentContainer(i + 1);
+  });
 });
-
-carouselSwitch[1].addEventListener('click', () => {
-  currentContainer(2);
-});
-
-carouselSwitch[2].addEventListener('click', () => {
-  currentContainer(3);
-});
-
 
 console.log('If you can see this you\'re awesome!');
